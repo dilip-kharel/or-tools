@@ -47,8 +47,8 @@ if [ "${BUILDER}" == make ]; then
 				installswig
 			fi
 			if [ "${LANGUAGE}" == python ]; then
-				pyenv global system 3.6;
-				python3.6 -m pip install -q virtualenv wheel six;
+				sudo apt-get -yqq install python3 python3-pip
+				python3 -m pip install -q virtualenv wheel six;
 			elif [ "${LANGUAGE}" == dotnet ]; then
 				installmono
 				sudo apt-get -yqq install fsharp
@@ -67,7 +67,7 @@ if [ "${BUILDER}" == make ]; then
 			fi
 			if [ "${LANGUAGE}" == python ]; then
 				brew upgrade python;
-				python3.6 -m pip install -q virtualenv wheel six;
+				python3 -m pip install -q virtualenv wheel six;
 			elif [ "${LANGUAGE}" == java ]; then
 				brew cask install java;
 			elif [ "${LANGUAGE}" == dotnet ]; then
